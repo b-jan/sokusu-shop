@@ -41,24 +41,20 @@ export default {
     "~/plugins/scrollto"
   ],
   modules: [
-    [
-      'nuxt-sass-resources-loader',
-      [
-        './assets/style/variables.scss',
-      ]
-    ],
-    [
-      'nuxt-mq',
-      {
-        // Default breakpoint for SSR
-        defaultBreakpoint: 'default',
-        breakpoints: {
-          sm: 600,
-          md: 1200,
-          lg: Infinity
-        }
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-130202389-1'
+    }],
+    ['nuxt-sass-resources-loader', [
+      './assets/style/variables.scss',
+    ]],
+    ['nuxt-mq', {
+      defaultBreakpoint: 'default',
+      breakpoints: {
+        sm: 600,
+        md: 1200,
+        lg: Infinity
       }
-    ]
+    }]
   ],
   css: ["~/assets/style/main.css"],
   router: {
