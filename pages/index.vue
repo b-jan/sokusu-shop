@@ -105,6 +105,7 @@ export default {
         text-align: center;
         animation: blink 2s infinite;
         transition: color .4s ease;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.5);
       }
     }
   }
