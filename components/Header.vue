@@ -9,17 +9,19 @@
       </nuxt-link>
 
       <nav class="nav-menu">
-        <nuxt-link :to="'/category'" class="nav-menu__nav-link">Paintings</nuxt-link>
-        <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Animals</nuxt-link>
-        <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Fruits</nuxt-link>
-        <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Eyes</nuxt-link>
-        <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Stripes</nuxt-link>
+        <nuxt-link :to="'/category'" class="nav-menu__nav-link">Paintings</nuxt-link><!-- Mixte (5) -->
+        <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Animals</nuxt-link><!-- Men (5) -->
+        <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Fruits</nuxt-link><!-- Women (3) -->
+        <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Eyes</nuxt-link><!-- Mixte (3) -->
+        <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Food</nuxt-link><!-- Men (5) -->
+        <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Sex</nuxt-link><!-- Mixte (5) -->
+        <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Japan</nuxt-link><!-- Women (5) -->
       </nav>
 
       <div ref="cart" class="cart">
         <a href="#" class="snipcart-checkout">
           <div class="snipcart-summary">
-            <img src="~/assets/images/cart.png" class="cart__icon">
+            <img src="~/assets/images/cart.png" alt="cart" class="cart__icon">
             <span class="snipcart-total-items"/>
             <span> item(s)</span>
             <span class="snipcart-total-price"/>
@@ -53,7 +55,7 @@
 
 <style lang="scss" scoped>
   header {
-    font-family: 'Speakeasy';
+    font-family: 'Moderne-Sans';
     background-color: $main-primary-color;
     color: $main-light-color;
     position: fixed;
