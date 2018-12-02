@@ -9,9 +9,11 @@
       </nuxt-link>
 
       <nav class="nav-menu">
-        <nuxt-link :to="'/category'" class="nav-menu__nav-link">Categories</nuxt-link>
-        <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Vendors</nuxt-link>
-        <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Vendors</nuxt-link>
+        <nuxt-link :to="'/category'" class="nav-menu__nav-link">Paintings</nuxt-link>
+        <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Animals</nuxt-link>
+        <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Fruits</nuxt-link>
+        <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Eyes</nuxt-link>
+        <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Stripes</nuxt-link>
       </nav>
 
       <div ref="cart" class="cart">
