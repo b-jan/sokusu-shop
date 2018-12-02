@@ -39,13 +39,27 @@ export default {
     "~/plugins/globalData",
     "~/plugins/scrollto"
   ],
-  modules: ['@nuxtjs/style-resources'],
-  css: ["~/assets/style/main.css"],
-  styleResources: {
-    scss: [
-      './assets/style/variables.scss',
+  modules: [
+    [
+      'nuxt-sass-resources-loader',
+      [
+        './assets/style/variables.scss',
       ]
-  },
+    ],
+    [
+      'nuxt-mq',
+      {
+        // Default breakpoint for SSR
+        defaultBreakpoint: 'default',
+        breakpoints: {
+          sm: 600,
+          md: 1200,
+          lg: Infinity
+        }
+      }
+    ]
+  ],
+  css: ["~/assets/style/main.css"],
   router: {
     linkExactActiveClass: 'active-link'
   },

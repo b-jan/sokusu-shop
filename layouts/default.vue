@@ -1,6 +1,6 @@
 <template>
   <div id="root">
-    <Header />
+    <Header id="header"/>
 
     <!-- <section class="sidebar">
       <ul class="categories">
@@ -53,10 +53,11 @@ export default {
 <style lang="scss" scoped>
 
 #root {
+  margin: 0;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  margin: 0;
+  justify-content: space-between;
 }
 
 #content {

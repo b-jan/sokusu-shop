@@ -4,9 +4,9 @@
       <div class="site-slogan">
         <h1>SOCKS</h1>
         <h1>THAT DON'T SUCK</h1>
-        <div v-scroll-to="{ el: '#new-products', easing: 'ease-in-out', duration: 1000 }" class="content-scroll">
-          <div class="roof" />
-        </div>
+      </div>
+      <div v-scroll-to="{ el: '#new-products', easing: 'ease-in-out', duration: 1000 }" class="content-scroll">
+        <div class="roof" />
       </div>
     </section>
     <section id="new-products">
@@ -25,31 +25,26 @@ export default {
 <style lang='scss' scoped>
   #site-home {
     background-image: url('~assets/images/home.jpg');
-    background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
     width: 100%;
-    height: 842px;
+    height: 100vh;;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .site-slogan {
       color: $main-light-color;
       letter-spacing: 12px;
       font-size: 80px;
       text-align: center;
-      padding-top: 120px;
+      margin-top: 180px;
     }
 
     .content-scroll {
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      position: relative;
-      margin-top: 470px;
-
-      @keyframes bouncing {
-        0% {bottom: 0;}
-        50% {bottom: 20px;}
-        100% {bottom: 0;}
-      }
 
       .roof {
         display: flex;
@@ -58,7 +53,6 @@ export default {
         width: 0;
         height: 0;
         position: relative;
-        top: -122px;
         border-left: 200px solid transparent;
         border-right: 200px solid transparent;
         border-bottom: 150px solid $main-light-color;
@@ -79,9 +73,9 @@ export default {
         letter-spacing: 0;
         font-family: 'Lato-Bold';
         color: $main-primary-color;
-        font-size: 24px;
+        font-size: 32px;
         position: relative;
-        top: 80px;
+        top: 75px;
         min-width: 20vw;
         text-align: center;
         animation: blink 2s infinite;
