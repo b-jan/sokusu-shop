@@ -58,6 +58,7 @@ export default {
   ],
   css: ["~/assets/style/main.css"],
   router: {
+    linkActiveClass: '',
     linkExactActiveClass: 'active-link'
   },
   render: {
