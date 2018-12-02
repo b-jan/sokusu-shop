@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  src: url("../fonts/Lato-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Lato-Light';
+  font-style: normal;
+  src: url("../fonts/Lato-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Lato-Bold';
+  font-style: normal;
+  src: url("../fonts/Lato-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Speakeasy';
+  font-style: normal;
+  src: url("../fonts/Moderne-Sans.ttf") format("truetype");
+}
+
+html, body {
+  overflow: auto;
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration:none; 
+  cursor: pointer;
+}
