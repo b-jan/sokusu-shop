@@ -1,46 +1,97 @@
 <template>
-  <section>
-    <div>
-      <h1 class="title">
-        <a href="http://sanity.io">
-          <AppLogo />
-        </a>
-      </h1>
-      <h2 class="subtitle">
-        A minimal front-end for the sanity e-commerce example schema,
-        written on <a href="https://vuejs.org/">vue.js</a> and <a href="https://nuxtjs.org/">nuxt.js</a> with a client-side shopping cart from <a href="https://snipcart.com/">Snipcart</a>.
+  <div class="home-page">
+    <section id="site-home">
+      <div class="site-slogan">
+        <h1>SOCKS</h1>
+        <h1>THAT DON'T SUCK</h1>
+        <div v-scroll-to="{ el: '#new-products', easing: 'ease-in-out', duration: 1000 }" class="content-scroll">
+          <div class="roof" />
+        </div>
+      </div>
+    </section>
+    <section id="new-products">
+      <h2>
+        Les produits arrivent ...
       </h2>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <script>
-import AppLogo from "~/components/AppLogo"
-
 export default {
-  components: {
-    AppLogo
-  }
 }
 </script>
 
-<style scoped>
-section {
-  background-size: cover;
-}
+<style lang='scss' scoped>
+  #site-home {
+    background-image: url('~assets/images/home.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 842px;
 
-.title,
-.subtitle {
-  text-align: center;
-  padding: 1em;
-}
+    .site-slogan {
+      color: $main-light-color;
+      letter-spacing: 12px;
+      font-size: 80px;
+      text-align: center;
+      padding-top: 120px;
+    }
 
-.title {
-  font-size: 10vw;
-  padding-bottom: 0.5em;
-}
+    .content-scroll {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      margin-top: 470px;
 
-.subtitle {
-  padding-bottom: 3em;
-}
+      @keyframes bouncing {
+        0% {bottom: 0;}
+        50% {bottom: 20px;}
+        100% {bottom: 0;}
+      }
+
+      .roof {
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        width: 0;
+        height: 0;
+        position: relative;
+        top: -122px;
+        border-left: 200px solid transparent;
+        border-right: 200px solid transparent;
+        border-bottom: 150px solid $main-light-color;
+        cursor: pointer;
+        transition: border-bottom-color .4s ease;
+      }
+
+      .roof:hover {
+        border-bottom-color: $main-primary-color;
+      }
+
+      .roof:hover:after {
+        color: $main-light-color;
+      }
+      
+      .roof:after {
+        content: 'SHOW ME!';
+        letter-spacing: 0;
+        font-family: 'Lato-Bold';
+        color: $main-primary-color;
+        font-size: 24px;
+        position: relative;
+        top: 80px;
+        min-width: 20vw;
+        text-align: center;
+        animation: blink 2s infinite;
+        transition: color .4s ease;
+      }
+    }
+  }
+
+  #new-products {
+    display: flex;
+    height: 150vh;
+  }
 </style>
