@@ -1,7 +1,7 @@
 <template>
   <div class="home-page">
-    <section id="site-home">
-      <div class="site-slogan">
+    <section id="site-home" ref="main" @mousemove="shadow">
+      <div ref="slogan" class="site-slogan">
         <h1>SOCKS</h1>
         <h1>THAT DON'T SUCK</h1>
       </div>
@@ -19,6 +19,31 @@
 
 <script>
 export default {
+  name: 'Header',
+  methods: {
+    shadow: function(e) {
+      const main = this.$refs.main
+      const slogan = this.$refs.slogan
+
+      const { offsetWidth: width, offsetHeight: height } = main
+      let {offsetX: x, offsetY: y } = e
+
+      if(this !== e.target) {
+        x = x + e.target.offsetLeft
+        y = y + e.target.offsetTop
+      }
+
+      const movement = 20
+      const xMovement = (x / width * movement) - (movement / 2)
+      const yMovement = (y / height * movement) - (movement / 2)
+
+      slogan.style.textShadow = `
+        ${xMovement}px ${yMovement}px 0 blue,
+        ${2*xMovement}px ${2*yMovement}px 0 red,
+        ${3*xMovement}px ${3*yMovement}px 0 pink
+      `
+    }
+  }
 }
 </script>
 
