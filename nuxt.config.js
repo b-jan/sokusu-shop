@@ -36,6 +36,7 @@ export default {
   },
   loading: { color: "#005B56" },
   plugins: [
+    { src: "~plugins/crisp.js", ssr: false },
     "~/plugins/globalData",
     "~/plugins/scrollto"
   ],
