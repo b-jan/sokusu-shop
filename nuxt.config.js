@@ -84,5 +84,6 @@ export default {
         []
       )
     }
-  }
+  },
+  analyze: true
 }
