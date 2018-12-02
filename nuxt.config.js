@@ -34,9 +34,28 @@ export default {
       }
     ]
   },
-  loading: { color: "#3B8070" },
-  plugins: ["~/plugins/globalData"],
-  css: ["~/css/global.css"],
+  loading: { color: "#005B56" },
+  plugins: [
+    "~/plugins/globalData",
+    "~/plugins/scrollto"
+  ],
+  modules: ['@nuxtjs/style-resources'],
+  css: ["~/assets/style/main.css"],
+  styleResources: {
+    scss: [
+      './assets/style/variables.scss',
+      ]
+  },
+  router: {
+    linkExactActiveClass: 'active-link'
+  },
+  render: {
+    bundleRenderer: {
+      shouldPreload: (file, type) => {
+        return ["script", "style", "font"].includes(type)
+      }
+    }
+  },
   build: {
     postcss: [require("postcss-cssnext")()],
     extend(config, { isDev, isClient }) {
