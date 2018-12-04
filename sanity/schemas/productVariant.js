@@ -4,14 +4,9 @@ export default {
   type: 'object',
   fields: [
     {
-      title: 'Title',
-      name: 'title',
-      type: 'string'
-    },
-    {
       title: 'Size',
       name: 'size',
-      type: 'number'
+      type: 'string'
     },
     {
       name: 'gender',
@@ -24,5 +19,17 @@ export default {
       name: 'price',
       type: 'number'
     }
-  ]
+  ],
+  preview: {
+    select: {
+      gender: 'gender.title.en',
+      size: 'size'
+    },
+    prepare(selection) {
+      const {gender, size} = selection
+      return {
+        title: `${gender} | ${size}`
+      }
+    }
+  }
 }
