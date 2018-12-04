@@ -3,24 +3,24 @@
     <Header id="header"/>
 
     <!-- <section class="sidebar">
-      <ul class="categories">
+      <ul class="collections">
         <li
-          v-for="category in this.$store.state.globalData.categoryTree"
-          v-if="category.slug"
-          :key="category._id"
-          class="category"
+          v-for="collection in this.$store.state.globalData.collectionTree"
+          v-if="collection.slug"
+          :key="collection._id"
+          class="collection"
         >
-          <router-link :to="'/category/' + category.slug.current">
-            {{ category.title }}
+          <router-link :to="'/collection/' + collection.slug.current">
+            {{ collection.title }}
           </router-link>
-          <ul v-if="category.children" class="sub-categories">
+          <ul v-if="collection.children" class="sub-collections">
             <li
-              v-for="subCategory in category.children"
-              v-if="subCategory.slug"
-              :key="category._id + subCategory._id"
+              v-for="subcollection in collection.children"
+              v-if="subcollection.slug"
+              :key="collection._id + subcollection._id"
             >
-              <router-link :to="'/category/' + subCategory.slug.current">
-                {{ subCategory.title }}
+              <router-link :to="'/collection/' + subcollection.slug.current">
+                {{ subcollection.title }}
               </router-link>
             </li>
           </ul>
@@ -87,42 +87,42 @@ section.content {
   }
 }
 
-ul.categories {
+ul.collections {
   font-weight: 500;
   display: none;
   margin: 0 0 0.5rem 0;
   padding: 1rem;
 }
 
-.sub-categories {
+.sub-collections {
   padding: 0;
   margin: 0;
   padding-left: 0.8rem;
 }
 
-.sub-categories li {
+.sub-collections li {
   display: block;
   margin: 0.5em;
   padding: 0;
 }
 
 @media only screen and (min-width: 500px) {
-  ul.categories {
+  ul.collections {
     display: block;
   }
 }
 
-.category {
+.collection {
   display: block;
   margin: 0 0 0.1rem 0;
   padding: 0;
 }
 
-.category .nuxt-link-active {
+.collection .nuxt-link-active {
   font-weight: 700;
 }
 
-ul.categories :global(a) {
+ul.collections :global(a) {
   text-decoration: none;
 }
 </style>

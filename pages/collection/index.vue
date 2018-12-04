@@ -2,12 +2,12 @@
   <section>
     <div>
       <h1 class="title">
-        Categories
+        Collections
       </h1>
-      <ul class="categories">
-        <li v-for="category in this.$store.state.globalData.categories" v-if="category.slug" :key="category._id">
-          <router-link :to="'/category/' + category.slug.current">
-            {{ category.title }}
+      <ul class="collections">
+        <li v-for="collection in this.$store.state.globalData.collections" v-if="collection.slug" :key="collection._id">
+          <router-link :to="'/collection/' + collection.slug.current">
+            {{ collection.title }}
           </router-link>
         </li>
       </ul>

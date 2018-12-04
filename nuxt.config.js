@@ -85,8 +85,8 @@ export default {
     routes: async function() {
       const paths = await client.fetch(`{
         "product": *[_type == "product"].slug.current,
-        "category": *[_type == "category"].slug.current,
-        "vendor": *[_type == "vendor"].slug.current
+        "collection": *[_type == "collection"].slug.current,
+        "gender": *[_type == "gender"].slug.current
       }`)
       return Object.keys(paths).reduce(
         (acc, key) => [

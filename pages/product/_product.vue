@@ -1,16 +1,16 @@
 <template>
   <section :key="product._id">
 
-    <ul class="categories">
+    <ul class="collections">
       <li>
-        <router-link :to="'/vendor/' + product.vendor.slug.current" class="vendor">
-          <SanityImage :image="product.vendor.logo" class="vendorLogo" />
+        <router-link :to="'/gender/' + product.gender.slug.current" class="gender">
+          <SanityImage :image="product.gender.banner" class="genderBanner" />
         </router-link>
-        <!-- {{ product.vendor.title }} -->
+        <!-- {{ product.gender.title }} -->
       </li>
-      <li v-for="category in product.categories" :key="category._id">
-        <router-link :to="'/category/' + category.slug.current">
-          {{ category.title }}
+      <li v-for="collection in product.collections" :key="collection._id">
+        <router-link :to="'/collection/' + collection.slug.current">
+          {{ collection.title }}
         </router-link>
       </li>
     </ul>
@@ -55,8 +55,8 @@ import numeral from "numeral"
 const query = `
   *[_type == "product" && slug.current == $product][0] {
     ...,
-    categories[]->,
-    vendor->
+    collections[]->,
+    gender->
   }
 `
 
@@ -149,27 +149,27 @@ export default {
   align-items: center;
 }
 
-.categories {
+.collections {
   margin: 0;
   display: flex;
   align-items: center;
   padding: 0;
 }
 
-.categories :global(li) {
+.collections :global(li) {
   display: block;
   margin-right: 0.5em;
   padding: 0;
   font-weight: 600;
 }
 
-.categories :global(a) {
+.collections :global(a) {
   text-decoration: none;
   display: block;
   padding: 1em 0;
 }
 
-.categories :global(img) {
+.collections :global(img) {
   display: block;
 }
 
@@ -193,11 +193,11 @@ export default {
   padding-top: 15px;
 }
 
-.vendor {
+.gender {
   display: inline-block;
 }
 
-.vendorLogo {
+.genderBanner {
   display: inline-block;
   margin: 0 auto;
   max-height: 1.5em;

@@ -17,10 +17,10 @@ import Price from "~/components/Price"
 import ProductList from "~/components/ProductList"
 
 const query = `
-  *[_type == "vendor" && slug.current == $vendor] {
+  *[_type == "gender" && slug.current == $gender] {
     _id,
     title,
-    logo,
+    banner,
     description,
     "products": *[_type == "product" && references(^._id)]
   }[0]

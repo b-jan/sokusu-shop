@@ -9,16 +9,16 @@
       </nuxt-link>
 
       <nav class="nav-menu">
-        <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Man</nuxt-link><!-- Mixte (5) -->
-        <nuxt-link :to="'/category'" class="nav-menu__nav-link">Woman</nuxt-link><!-- Mixte (5) -->
-        <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Mixed</nuxt-link><!-- Mixte (5) -->
-        <!-- <nuxt-link :to="'/category'" class="nav-menu__nav-link">Paintings</nuxt-link> Mixte (5) -->
-        <!-- <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Animals</nuxt-link> Men (5) -->
-        <!-- <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Fruits</nuxt-link> Women (3) -->
-        <!-- <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Eyes</nuxt-link> Mixte (3) -->
-        <!-- <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Food</nuxt-link> Men (5) -->
-        <!-- <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Sex</nuxt-link> Mixte (5) -->
-        <!-- <nuxt-link :to="'/vendor'" class="nav-menu__nav-link">Weird</nuxt-link>Women (5) -->
+        <nuxt-link :to="'/gender'" class="nav-menu__nav-link">Man</nuxt-link><!-- Mixte (5) -->
+        <nuxt-link :to="'/collection'" class="nav-menu__nav-link">Woman</nuxt-link><!-- Mixte (5) -->
+        <nuxt-link :to="'/gender'" class="nav-menu__nav-link">Collections</nuxt-link><!-- Mixte (5) -->
+        <!-- <nuxt-link :to="'/collection'" class="nav-menu__nav-link">Paintings</nuxt-link> Mixte (5) -->
+        <!-- <nuxt-link :to="'/gender'" class="nav-menu__nav-link">Animals</nuxt-link> Men (5) -->
+        <!-- <nuxt-link :to="'/gender'" class="nav-menu__nav-link">Fruits</nuxt-link> Women (3) -->
+        <!-- <nuxt-link :to="'/gender'" class="nav-menu__nav-link">Eyes</nuxt-link> Mixte (3) -->
+        <!-- <nuxt-link :to="'/gender'" class="nav-menu__nav-link">Food</nuxt-link> Men (5) -->
+        <!-- <nuxt-link :to="'/gender'" class="nav-menu__nav-link">Sex</nuxt-link> Mixte (5) -->
+        <!-- <nuxt-link :to="'/gender'" class="nav-menu__nav-link">Weird</nuxt-link>Women (5) -->
       </nav>
 
       <div ref="cart" class="cart">

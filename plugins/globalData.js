@@ -1,35 +1,35 @@
 import sanity from "~/sanity.js"
 
-function isParentOf(category, possibleParent) {
-  if (possibleParent._id === category._id) {
+function isParentOf(collection, possibleParent) {
+  if (possibleParent._id === collection._id) {
     return false
   }
-  return (category.parents || []).some(
+  return (collection.parents || []).some(
     parent => parent._ref === possibleParent._id
   )
 }
 
-const attachCategories = (category, allCategories) => {
+const attachCollections = (collection, allCollections) => {
   return {
-    ...category,
-    children: allCategories.filter(otherCategory =>
-      isParentOf(otherCategory, category)
+    ...collection,
+    children: allCollections.filter(otherCollection =>
+      isParentOf(otherCollection, collection)
     )
   }
 }
 
 const query = `
   {
-    "categories": *[_type == "category"] {
+    "collections": *[_type == "collection"] {
       _id,
       title,
       slug,
       parents
     },
-    "vendors": *[_type == "vendor"] {
+    "genders": *[_type == "gender"] {
       title,
       slug,
-      logo,
+      banner,
       "productQty": count(*[_type == "product" && references(^._id)])
     }
   }
@@ -42,11 +42,11 @@ const query = `
  */
 export default ({ store }) => {
   return sanity.fetch(query).then(data => {
-    const categories = data.categories.map(category =>
-      attachCategories(category, data.categories)
+    const collections = data.collections.map(collection =>
+      attachCollections(collection, data.collections)
     )
-    data.categoryTree = categories.filter(
-      category => (category.parents || []).length === 0
+    data.collectionTree = collections.filter(
+      collection => (collection.parents || []).length === 0
     )
     store.commit("globalData", data)
   })

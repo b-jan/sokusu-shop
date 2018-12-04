@@ -2,15 +2,15 @@
   <section>
     <div>
       <h1 class="title">
-        Vendors
+        genders
       </h1>
-      <ul class="vendors">
-        <li v-for="vendor in this.$store.state.globalData.vendors" v-if="vendor.slug" :key="vendor._id" class="vendor">
-          <router-link :to="'/vendor/' + vendor.slug.current" class="link">
-            <SanityImage v-if="vendor.logo" :image="vendor.logo" class="image" />
+      <ul class="genders">
+        <li v-for="gender in this.$store.state.globalData.genders" v-if="gender.slug" :key="gender._id" class="gender">
+          <router-link :to="'/gender/' + gender.slug.current" class="link">
+            <SanityImage v-if="gender.banner" :image="gender.Banner" class="image" />
             <div class="meta">
-              <span class="vendorTitle">{{ vendor.title }}</span>
-              &nbsp;<span class="qty">({{ vendor.productQty }})</span>
+              <span class="genderTitle">{{ gender.title }}</span>
+              &nbsp;<span class="qty">({{ gender.productQty }})</span>
             </div>
           </router-link>
         </li>
@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style scoped>
-.vendors {
+.genders {
   display: grid;
   margin: 0;
   padding: 0;
@@ -39,7 +39,7 @@ export default {
   margin-top: 4em;
 }
 
-.vendor {
+.gender {
   display: block;
   margin: 0;
   padding: 0;
@@ -56,7 +56,7 @@ export default {
   grid-template-rows: 3fr 1fr;
 }
 
-.vendorTitle {
+.genderTitle {
   font-size: 1.5em;
 }
 

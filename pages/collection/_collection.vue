@@ -1,12 +1,12 @@
 <template>
-  <section :key="category.id" class="container">
+  <section :key="collection.id" class="container">
     <div>
-      <h1 class="title">{{ category.title }}</h1>
-      <div class="description">{{ category.description }}</div>
-      <ProductList v-if="category.products" :products="category.products" />
-      <ul v-if="category.categories" class="sub-categories">
-        <li v-for="subCat in category.categories" :key="subCat._id">
-          <router-link :to="'/category/' + subCat.slug.current">
+      <h1 class="title">{{ collection.title }}</h1>
+      <div class="description">{{ collection.description }}</div>
+      <ProductList v-if="collection.products" :products="collection.products" />
+      <ul v-if="collection.collections" class="sub-collections">
+        <li v-for="subCat in collection.collections" :key="subCat._id">
+          <router-link :to="'/collection/' + subCat.slug.current">
             {{ subCat.title }}
           </router-link>
         </li>
@@ -23,9 +23,9 @@ import Price from "~/components/Price"
 import ProductList from "~/components/ProductList"
 
 const query = `
-  *[_type == "category" && slug.current == $category] {
+  *[_type == "collection" && slug.current == $collection] {
     _id,
-    "categories": *[_type == 'category' && references(^._id)],
+    "collections": *[_type == 'collection' && references(^._id)],
     title,
     description,
     "products": *[_type == "product" && references(^._id)]
@@ -36,7 +36,7 @@ export default {
   asyncData(context) {
     return sanity
       .fetch(query, context.route.params)
-      .then(data => ({ category: localize(data) }))
+      .then(data => ({ collection: localize(data) }))
   },
   components: {
     ImageViewer,
@@ -45,10 +45,10 @@ export default {
   },
   data: function() {
     return {
-      category: {
+      collection: {
         id: null,
         products: [],
-        categories: null
+        collections: null
       }
     }
   }
@@ -56,19 +56,19 @@ export default {
 </script>
 
 <style scoped>
-.sub-categories {
+.sub-collections {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
 
-.sub-categories li {
+.sub-collections li {
   display: block;
   padding: 2em;
   text-align: center;
   font-size: 2em;
 }
 
-.sub-categories a {
+.sub-collections a {
   text-decoration: none;
 }
 
