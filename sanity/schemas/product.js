@@ -96,7 +96,7 @@ export default {
   preview: {
     select: {
       title: 'title.en',
-      media: 'defaultProductVariant.images[0]'
+      media: 'images[0]'
     }
   }
 }
