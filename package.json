@@ -12,7 +12,12 @@
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "sanity:start": "cd ./sanity && sanity start",
+    "sanity:manage": "cd ./sanity && sanity manage",
+    "sanity:help": "cd ./sanity && sanity help",
+    "sanity:docs": "cd ./sanity && sanity docs",
+    "sanity:deploy": "cd ./sanity && sanity deploy"
   },
   "dependencies": {
     "@nuxtjs/google-analytics": "^2.0.2",
