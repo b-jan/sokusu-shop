@@ -6,11 +6,11 @@
       </h1>
       <ul class="genders">
         <li v-for="gender in this.$store.state.globalData.genders" v-if="gender.slug" :key="gender._id" class="gender">
-          <router-link :to="'/gender/' + gender.slug.current" class="link">
-            <SanityImage v-if="gender.banner" :image="gender.Banner" class="image" />
+          <router-link :to="gender.slug.current" class="link">
+            <SanityImage v-if="gender.banner" :image="gender.banner" :width="300" class="image" />
             <div class="meta">
-              <span class="genderTitle">{{ gender.title }}</span>
-              &nbsp;<span class="qty">({{ gender.productQty }})</span>
+              <span class="genderTitle">{{ gender.title.en }}</span>
+              <span class="qty">({{ gender.productQty }})</span>
             </div>
           </router-link>
         </li>

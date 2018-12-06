@@ -9,9 +9,9 @@
       </nuxt-link>
 
       <nav class="nav-menu">
-        <nuxt-link :to="'/gender'" class="nav-menu__nav-link">Man</nuxt-link><!-- Mixte (5) -->
-        <nuxt-link :to="'/collection'" class="nav-menu__nav-link">Woman</nuxt-link><!-- Mixte (5) -->
-        <nuxt-link :to="'/gender'" class="nav-menu__nav-link">Collections</nuxt-link><!-- Mixte (5) -->
+        <nuxt-link :to="'/man'" class="nav-menu__nav-link">Man</nuxt-link><!-- Mixte (5) -->
+        <nuxt-link :to="'/woman'" class="nav-menu__nav-link">Woman</nuxt-link><!-- Mixte (5) -->
+        <nuxt-link :to="'/collections'" class="nav-menu__nav-link">Collections</nuxt-link><!-- Mixte (5) -->
         <!-- <nuxt-link :to="'/collection'" class="nav-menu__nav-link">Paintings</nuxt-link> Mixte (5) -->
         <!-- <nuxt-link :to="'/gender'" class="nav-menu__nav-link">Animals</nuxt-link> Men (5) -->
         <!-- <nuxt-link :to="'/gender'" class="nav-menu__nav-link">Fruits</nuxt-link> Women (3) -->
