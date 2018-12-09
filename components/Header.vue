@@ -11,7 +11,6 @@
       <nav class="nav-menu">
         <nuxt-link :to="'/man'" class="nav-menu__nav-link">Man</nuxt-link><!-- Mixte (5) -->
         <nuxt-link :to="'/woman'" class="nav-menu__nav-link">Woman</nuxt-link><!-- Mixte (5) -->
-        <nuxt-link :to="'/collections'" class="nav-menu__nav-link">Collections</nuxt-link><!-- Mixte (5) -->
         <!-- <nuxt-link :to="'/collection'" class="nav-menu__nav-link">Paintings</nuxt-link> Mixte (5) -->
         <!-- <nuxt-link :to="'/gender'" class="nav-menu__nav-link">Animals</nuxt-link> Men (5) -->
         <!-- <nuxt-link :to="'/gender'" class="nav-menu__nav-link">Fruits</nuxt-link> Women (3) -->
@@ -120,6 +119,7 @@
       
       &__nav-link {
         margin: 0 25px;
+        min-width: 70px;
         text-shadow: -2px 0px 3px rgba(0,0,0,0.3);
       }
 

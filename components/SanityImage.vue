@@ -1,5 +1,8 @@
 <template>
-  <img :src="imageUrl" :alt="alt" >
+  <div
+    :style="imageStyle"
+    :alt="alt"
+  />
 </template>
 
 <script>
@@ -20,11 +23,22 @@ export default {
     width: {
       default: 200,
       type: Number
+    },
+    height: {
+      default: 200,
+      type: Number
     }
   },
   computed: {
     imageUrl: function() {
-      return builder.image(this.image).width(this.width)
+      return builder.image(this.image).width(this.width).height(this.height)
+    },
+    imageStyle: function() {
+      return {
+        'background-image': `url(${this.imageUrl})`,
+        'width': this.width + 'px',
+        'height': this.height + 'px'
+      }
     }
   }
 }

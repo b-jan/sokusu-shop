@@ -27,6 +27,10 @@ const query = `
 `
 
 export default {
+  validate ({ params, store }) {
+    const genders =  store.state.globalData.genders
+    return genders.map(gender => gender.slug.current === params.id)
+  },
   asyncData(context) {
     return sanity
       .fetch(query, context.route.params)
