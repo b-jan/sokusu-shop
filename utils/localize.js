@@ -1,4 +1,4 @@
-export default function localize(value, languages = ["en", "no", "es"]) {
+export default function localize(value, languages = ["en", "fr"]) {
   if (Array.isArray(value)) {
     return value.map(v => localize(v, languages))
   } else if (typeof value === "object") {
@@ -6,7 +6,6 @@ export default function localize(value, languages = ["en", "no", "es"]) {
       const language = languages.find(lang => value[lang])
       return value[language]
     }
-
     return Object.keys(value).reduce((result, key) => {
       result[key] = localize(value[key], languages)
       return result

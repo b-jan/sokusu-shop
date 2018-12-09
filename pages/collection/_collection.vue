@@ -1,24 +1,20 @@
 <template>
-  <section :key="collection.id" class="container">
-    <div>
-      <h1 class="title">{{ collection.title }}</h1>
-      <div class="description">{{ collection.description }}</div>
+  <div class="collection">
+    <section class="collection__intro">
+      <h1 class="collection__title">{{ collection.title }}</h1>
+      <div class="collection__description" v-html="bodyHtml" />
+    </section>
+
+    <section :key="collection.id" class="collection__products">
       <ProductList v-if="collection.products" :products="collection.products" />
-      <ul v-if="collection.collections" class="sub-collections">
-        <li v-for="subCat in collection.collections" :key="subCat._id">
-          <router-link :to="'/collection/' + subCat.slug.current">
-            {{ subCat.title }}
-          </router-link>
-        </li>
-      </ul>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <script>
 import sanity from "~/sanity.js"
 import localize from "~/utils/localize"
-import ImageViewer from "~/components/ImageViewer"
+import blocksToHtml from "@sanity/block-content-to-html"
 import Price from "~/components/Price"
 import ProductList from "~/components/ProductList"
 
@@ -28,6 +24,7 @@ const query = `
     "collections": *[_type == 'collection' && references(^._id)],
     title,
     description,
+    banner,
     "products": *[_type == "product" && references(^._id)]
   }[0]
 `
@@ -39,7 +36,6 @@ export default {
       .then(data => ({ collection: localize(data) }))
   },
   components: {
-    ImageViewer,
     Price,
     ProductList
   },
@@ -47,33 +43,55 @@ export default {
     return {
       collection: {
         id: null,
+        title: '',
+        description: '',
         products: [],
-        collections: null
       }
+    }
+  },
+  computed: {
+    bodyHtml: function() {
+      if (!this.collection || !this.collection.description) {
+        return "…"
+      }
+      return blocksToHtml({
+        blocks: this.collection.description,
+        dataset: sanity.clientConfig.dataset,
+        projectId: sanity.clientConfig.projectId
+      })
     }
   }
 }
 </script>
 
-<style scoped>
-.sub-collections {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+<style lang="scss" scoped>
+.collection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 100px 0 30px 0;
+
+  &__intro {
+    width: 1000px;
+    margin: 50px auto;
+  }
+
+  &__title {
+    font-size: 40px;
+    font-family: 'Moderne-Sans';
+    text-align: center;
+  }
+
+  &__description {
+    font-size: 24px;
+    font-family: 'Lato';
+    text-align: center;
+  }
 }
 
-.sub-collections li {
-  display: block;
-  padding: 2em;
-  text-align: center;
-  font-size: 2em;
+.products-container {
+  width: 1000px;
 }
 
-.sub-collections a {
-  text-decoration: none;
-}
 
-.description {
-  margin: 1em 0;
-  max-width: 50em;
-}
 </style>

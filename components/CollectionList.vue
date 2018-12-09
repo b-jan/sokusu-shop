@@ -1,7 +1,7 @@
 <template>
   <ul class="collection-list">
     <li v-for="collection in collections" v-if="collection.slug" :key="collection._id" class="collection">
-      <nuxt-link :to="collection.slug.current">
+      <nuxt-link :to="`collection/${collection.slug.current}`">
         <FeaturedImage
           v-if="collection.banner"
           :image="collection.banner"
