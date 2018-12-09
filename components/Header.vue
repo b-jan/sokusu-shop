@@ -118,8 +118,9 @@
       justify-content: flex-start;
       
       &__nav-link {
+        text-align: center;
         margin: 0 25px;
-        min-width: 70px;
+        min-width: 100px;
         text-shadow: -2px 0px 3px rgba(0,0,0,0.3);
       }
 
