@@ -2,8 +2,8 @@
   <figure class="featured-image">
     <SanityImage
       :image="image"
-      :width="450"
-      :height="550"
+      :width="width"
+      :height="height"
       class="image"
     />
     <figcaption>

@@ -5,8 +5,8 @@
         <FeaturedImage
           v-if="collection.banner"
           :image="collection.banner"
-          :width="450"
-          :height="550"
+          :width="250"
+          :height="350"
           class="collection__image"
         >
           <h2 class="collection__title">{{ collection.title.en }}</h2>

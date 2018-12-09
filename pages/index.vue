@@ -17,12 +17,6 @@
     <section id="collections">
       <CollectionList :collections="this.$store.state.globalData.collections" />
     </section>
-
-    <section id="instagram">
-      <h2>
-        Les produits arrivent ...
-      </h2>
-    </section>
   </div>
 </template>
 
@@ -136,6 +130,10 @@ export default {
   display: flex;
   width: 1000px;
   align-self: center;
+}
+
+#collections {
+  margin-bottom: 70px;
 }
 
 </style>
