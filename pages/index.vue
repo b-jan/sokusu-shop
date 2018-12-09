@@ -1,20 +1,26 @@
 <template>
   <div class="home-page">
-    <section id="site-home" ref="main" @mousemove="shadow">
+    <section ref="main" class="site-home" @mousemove="shadow">
       <div ref="slogan" class="site-slogan">
         <h1>SOCKS</h1>
         <h1>THAT DON'T SUCK</h1>
       </div>
-      <div v-scroll-to="{ el: '#site-genders', easing: 'ease-in-out', duration: 1000 }" class="content-scroll">
+      <div v-scroll-to="{ el: '.genders', easing: 'ease-in-out', duration: 1000 }" class="content-scroll">
         <div class="roof" />
       </div>
     </section>
 
-    <section id="genders">
-      <GenderList :genders="this.$store.state.globalData.genders" />
+    <section class="genders">
+      <h2 class="section__title">HIM / HER</h2>
+      <div class="genders__content">
+        <FlashingArrows class="genders__arrows" />
+        <GenderList :genders="this.$store.state.globalData.genders" class="genders__list" />
+        <FlashingArrows class="genders__arrows" />  
+      </div>
     </section>
 
-    <section id="collections">
+    <section class="collections">
+      <h2 class="section__title">COLLECTIONS</h2>
       <CollectionList :collections="this.$store.state.globalData.collections" />
     </section>
   </div>
@@ -23,12 +29,14 @@
 <script>
 import GenderList from "~/components/GenderList"
 import CollectionList from "~/components/CollectionList"
+import FlashingArrows from "~/components/FlashingArrows"
 
 export default {
   name: 'Home',
   components: {
     GenderList,
-    CollectionList
+    CollectionList,
+    FlashingArrows
   },
   methods: {
     shadow: function(e) {
@@ -64,7 +72,7 @@ export default {
   flex-direction: column;
 }
 
-#site-home {
+.site-home {
   background-image: url('~assets/images/home.jpg');
   background-repeat: no-repeat;
   background-position: center;
@@ -126,14 +134,37 @@ export default {
   }
 }
 
-#genders, #collections {
-  display: flex;
-  width: 1000px;
+.genders {
+  width: 100%;
   align-self: center;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 0 100px;
+  }
+
+  &__arrows {
+  }
+
+  &__list {
+    max-width: 1000px;
+  }
 }
 
-#collections {
+.collections {
+  width: 100%;
+  align-self: center;
   margin-bottom: 70px;
+}
+
+.section__title {
+  margin-top: 100px;
+  font-size: 40px;
+  text-align: center;
+  color: $main-hover-color;
+  letter-spacing: 5px;
 }
 
 </style>

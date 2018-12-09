@@ -9,7 +9,7 @@
           :height="350"
           class="collection__image"
         >
-          <h2 class="collection__title">{{ collection.title.en }}</h2>
+          <h3 class="collection__title">{{ collection.title.en }}</h3>
         </FeaturedImage>
       </nuxt-link>
     </li>
@@ -40,7 +40,7 @@ export default {
     display: flex;
     flex: 1;
     justify-content: space-between;
-    margin-top: 100px;
+    margin-top: 30px;
   }
 
   .collection {
@@ -54,7 +54,7 @@ export default {
     &__title {
       font-family: 'Moderne-Sans';
       color: $main-light-color;
-      font-size: 40px;;
+      font-size: 30px;;
       text-transform: uppercase
     }
   }

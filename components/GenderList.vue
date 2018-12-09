@@ -40,7 +40,6 @@ export default {
     display: flex;
     flex: 1;
     justify-content: space-between;
-    margin-top: 100px;
   }
 
   .gender {

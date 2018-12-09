@@ -78,9 +78,18 @@ export default {
 	transition: opacity 0.35s;
 }
 
-.featured-image:hover h2 {
+.featured-image:hover h2, {
 	opacity: 1;
 	-webkit-transition-delay: 0.1s;	transition-delay: 0.1s;
+}
+
+.featured-image h3 {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  right: 10%;
+  margin: 0 auto;
+	opacity: 1;
 }
 
 .featured-image figcaption::before {
