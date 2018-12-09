@@ -7,7 +7,7 @@
       <ul class="collections">
         <li v-for="collection in this.$store.state.globalData.collections" v-if="collection.slug" :key="collection._id">
           <router-link :to="'/collection/' + collection.slug.current">
-            {{ collection.title }}
+            {{ collection.title.en }}
           </router-link>
         </li>
       </ul>

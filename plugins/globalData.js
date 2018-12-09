@@ -24,9 +24,11 @@ const query = `
       _id,
       title,
       slug,
+      banner,
       parents
     },
     "genders": *[_type == "gender"] {
+      _id,
       title,
       slug,
       banner,

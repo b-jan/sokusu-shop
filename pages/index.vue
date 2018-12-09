@@ -10,14 +10,12 @@
       </div>
     </section>
 
-    <section id="site-genders">
+    <section id="genders">
       <GenderList :genders="this.$store.state.globalData.genders" />
     </section>
 
     <section id="collections">
-      <h2>
-        Les produits arrivent ...
-      </h2>
+      <CollectionList :collections="this.$store.state.globalData.collections" />
     </section>
 
     <section id="instagram">
@@ -30,11 +28,13 @@
 
 <script>
 import GenderList from "~/components/GenderList"
+import CollectionList from "~/components/CollectionList"
 
 export default {
   name: 'Home',
   components: {
-    GenderList
+    GenderList,
+    CollectionList
   },
   methods: {
     shadow: function(e) {
@@ -132,7 +132,7 @@ export default {
   }
 }
 
-#site-genders {
+#genders, #collections {
   display: flex;
   width: 1000px;
   align-self: center;
