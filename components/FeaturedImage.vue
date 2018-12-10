@@ -16,6 +16,7 @@
 import SanityImage from "~/components/SanityImage"
 
 export default {
+  name: 'FeaturedImage',
   components: {
     SanityImage
   },
@@ -78,7 +79,7 @@ export default {
 	transition: opacity 0.35s;
 }
 
-.featured-image:hover h2, {
+.featured-image:hover h2 {
 	opacity: 1;
 	-webkit-transition-delay: 0.1s;	transition-delay: 0.1s;
 }

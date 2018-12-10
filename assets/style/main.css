@@ -46,6 +46,7 @@ figure {
 
 a {
   text-decoration:none; 
+  color: black;
   outline: none;
   cursor: pointer;
 }
